@@ -1,19 +1,19 @@
 var express			= require("express"),
-	app				= express(),
+	app			= express(),
 	mongoose 		= require("mongoose"),
 	bodyParser		= require("body-parser"),
 	flash			= require("connect-flash"),
-	methodOverride	= require("method-override"),
+	methodOverride		= require("method-override"),
 	Campground		= require("./models/campground"),
 	Comment			= require("./models/comment"),
 	User			= require("./models/user"),
 	seedDB			= require("./seeds"),
 	passport		= require("passport"),
-	LocalStrategy	= require("passport-local");
+	LocalStrategy		= require("passport-local");
 
 //requiring routes
-var commentRoutes	= require("./routes/comments"),
-	campgroundRoutes= require("./routes/campgrounds"),
+var commentRoutes		= require("./routes/comments"),
+	campgroundRoutes	= require("./routes/campgrounds"),
 	indexRoutes		= require("./routes/index");
 
 // seedDB();  //seed the DB
@@ -50,7 +50,7 @@ mongoose.connect("mongodb+srv://aash:aash2906%23@cluster0-kmqxp.mongodb.net/yelp
 });
 
 app.use(function(req,res,next){
-	res.locals.currentUser 	= req.user;
+	res.locals.currentUser 		= req.user;
 	res.locals.error		= req.flash("error");
 	res.locals.success		= req.flash("success");
 
